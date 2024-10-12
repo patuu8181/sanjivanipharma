@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjivani Pharmaceutical Company</title>
+    
+    <!-- CSS Embedded Directly in HTML -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #2e7d32; /* Changed from blue to green */
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px; /* Adjust height as needed */
+            margin-right: 10px; /* Space between logo and text */
+        }
+
+        .logo img {
+            width: 150px; /* Adjust width as needed */
+            height: 150px; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between logo and text */
+            vertical-align: middle; /* Align vertically with the text */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden; /* Hide any overflow from video */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Video styling */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Make the video cover the entire section */
+            z-index: -1; /* Position the video behind other elements */
+        }
+
+        /* Container styling for Hero Section */
+        .hero .container {
+            position: relative;
+            z-index: 1; /* Ensure content is above the video */
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            height: 100%; /* Make the container fill the hero section */
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .hero .btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* About Us Section */
+        .about {
+            background-color: #f4f4f4;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            font-size: 24px;
+            margin-top: 15px;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Price Styles */
+        .product-card .price {
+            font-size: 20px;
+            color: #2e7d32; /* Green color for prices */
+            margin: 10px 0;
+        }
+
+        /* Button Styles */
+        .product-card .btn {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card .btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #2e7d32; /* Changed from blue to green */
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact button {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+    </style>
+    <script>
+        // Function to show alert message when "Add to Cart" is clicked
+        function addToCart(productName) {
+            alert(productName + " has been added to your cart!");
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <!-- Add Logo Here -->
+                <img src="C:\Users\prath\OneDrive\Desktop\logo123.png" alt="Sanjivani Pharma Logo">
+                <h1>Sanjivani Pharma</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <!-- Video as a background -->
+            <video class="video-background" autoplay loop muted>
+                <source src="C:\Users\prath\Downloads\222.mp4" type="video/mp4">
+            </video>
+
+            <!-- Centered content -->
+            <h1 style="color: black;">Your Health, Our Priority</h1>
+            <h3 style="color: black;">Leading the way in pharmaceutical innovation and healthcare solutions.</h3>
+
+            <a href="#products" class="btn">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Sanjivani Pharmaceutical Company is committed to delivering high-quality, innovative healthcare solutions. With a focus on research and development, we aim to improve the lives of patients globally.</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="C:\Users\prath\OneDrive\Desktop\fever.jpg" alt="Product 1">
+                    <h3>Fever Relief Tablet</h3>
+                    <p>Sangivani Pharma Fever Relief Tablet - Effective relief from fever and body aches.</p>
+                    <p class="price">₹ 750.00</p> <!-- Price in INR -->
+                    <button class="btn" onclick="addToCart('Fever Relief Tablet')">Buy Now</button>
+                    <button class="btn" onclick="addToCart('Fever Relief Tablet')">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="C:\Users\prath\OneDrive\Desktop\capsule.jpg" alt="Product 2">
+                    <h3>Body Pain Capsule</h3>
+                    <p>Sangivani Pharma Body Pain Capsule - Quick relief from muscle and joint pain.</p>
+                    <p class="price">₹ 950.00</p> <!-- Price in INR -->
+                    <button class="btn" onclick="addToCart('Body Pain Capsule')">Buy Now</button>
+                    <button class="btn" onclick="addToCart('Body Pain Capsule')">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="C:\Users\prath\OneDrive\Desktop\hair_groth.jpg" alt="Product 3">
+                    <h3>Hair Growth Tablet</h3>
+                    <p>Sangivani Pharma Hair Growth Tablet - Nourishes and strengthens hair roots for healthy hair growth.</p>
+                    <p class="price">₹ 1200.00</p> <!-- Price in INR -->
+                    <button class="btn" onclick="addToCart('Hair Growth Tablet')">Buy Now</button>
+                    <button class="btn" onclick="addToCart('Hair Growth Tablet')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <!-- Contact Information -->
+            <p>Email: <a href="mailto:prathamatigre@gmail.com" style="color: white;">prathamatigre@gmail.com</a></p>
+            <p>Phone: <a href="tel:+918529918181" style="color: white;">+61 473 175 335</a></p>
+            
+            <!-- Contact Form -->
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            
+            <!-- Location Option -->
+            <div class="location">
+                <h3>Our Location</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3879.8703650666993!2d74.18040641435314!3d16.850034688395983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc11e6edc6b4f17%3A0x1bf2d9e3b91bdf57!2sStarde%2C%20Maharashtra%20416911!5e0!3m2!1sen!2sin!4v1693481587770!5m2!1sen!2sin"
+                    width="600"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sanjivani Pharmaceutical Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
